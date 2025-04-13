@@ -14,7 +14,7 @@ cap.set(3, wCam)
 cap.set(4, hCam)
 pTime = 0
 
-detector = htm.handDetector(detectionCon=0.7)
+detector = htm.handDetector(detectionCon=0.7)  # 0.7 já é um float
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(

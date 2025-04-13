@@ -11,7 +11,12 @@ class handDetector():
         self.trackCon = trackCon
 
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.MaxHands, self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(
+            static_image_mode=self.mode,
+            max_num_hands=self.MaxHands,
+            min_detection_confidence=float(self.detectionCon),  # Certifique-se de usar float
+            min_tracking_confidence=float(self.trackCon)        # Certifique-se de usar float
+        )
         self.mpDraw = mp.solutions.drawing_utils
 
     def findHands(self, img, draw=True):
